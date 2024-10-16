@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
-    "gen-pwa": "pwa-assets-generator --preset minimal public/logo.svg"
+    "gen-pwa": "pwa-assets-generator --preset minimal public/logo.svg",
+    "prepare": "husky"
   },
   "dependencies": {
     "react": "^18.3.1",
