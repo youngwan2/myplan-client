@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
 import useSignupForm from '../customs/useSignupForm';
-import { InputField } from '../components/InputField';
-import Button from '../components/Button';
+import { InputField } from '../components/common/InputField';
+import Button from '../components/common/Button';
 
 export default function Signup() {
   const { errors, formData, handleChange, isFormValid } = useSignupForm();

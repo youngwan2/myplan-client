@@ -7,3 +7,5 @@
 (디자인)https://mobbin.com/browse
 (프리티어)https://prettier.io/docs/en/install#git-hooks
 (상태관리) https://zustand.docs.pmnd.rs/guides/typescript
+
+//"eslint --cache --fix", 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useLoginForm from '../customs/useLoginForm';
-import { InputField } from '../components/InputField';
+import { InputField } from '../components/common/InputField';
 import { useNavigate } from 'react-router';
 
 // Login Component
