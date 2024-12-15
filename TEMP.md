@@ -9,3 +9,9 @@
 (상태관리) https://zustand.docs.pmnd.rs/guides/typescript
 
 //"eslint --cache --fix", 
+
+
+### 색상 참고
+- 외곽선: #acaaaa
+- 배경: #F5F5F5
+

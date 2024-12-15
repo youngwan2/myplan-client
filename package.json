@@ -13,7 +13,10 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.62.7",
+    "@tanstack/react-query-devtools": "^5.62.7",
     "axios": "^1.7.9",
+    "d3": "^7.9.0",
     "framer-motion": "^11.13.5",
     "motion": "^11.13.5",
     "react": "^18.3.1",
@@ -26,9 +29,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
+    "@tanstack/eslint-plugin-query": "^5.62.1",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
+    "@types/d3": "^7.4.3",
     "@types/jest": "^29.5.13",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
