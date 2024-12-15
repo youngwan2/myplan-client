@@ -2,21 +2,13 @@ import React, { useState, useEffect } from 'react';
 import useLoginForm from '../customs/useLoginForm';
 import { InputField } from '../components/common/InputField';
 import { useNavigate } from 'react-router';
+import Button from '../components/common/Button';
 
 // Login Component
 export default function LoginPage() {
   const { formData, errors, isFormValid, handleChange } = useLoginForm();
   const [isRememberEmail, setIsRememberEmail] = useState(false);
   const router = useNavigate();
-
-  // 로컬 스토리지에서 이메일을 불러오는 로직
-  useEffect(() => {
-    const savedEmail = localStorage.getItem('email');
-    if (savedEmail) {
-      handleChange({ target: { name: 'email', value: savedEmail } });
-      setIsRememberEmail(true);
-    }
-  }, [handleChange]);
 
   // 이메일 체크박스 상태 변경 시 처리
   const handleRememberEmailChange = (
@@ -28,11 +20,10 @@ export default function LoginPage() {
     }
   };
 
+  // 로그인 요청
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (isFormValid) {
-      console.log('로그인 성공', formData);
-
       // 이메일을 로컬 스토리지에 저장
       if (isRememberEmail) {
         localStorage.setItem('email', formData.email);
@@ -42,13 +33,23 @@ export default function LoginPage() {
     }
   };
 
+  // 회원가입 페이지로 이동
   const handleSignUpRedirect = () => {
-    router('/sign-up'); // 회원가입 페이지로 이동
+    router('/sign-up');
   };
 
+  // 로컬 스토리지에서 이메일을 불러오는 로직
+  useEffect(() => {
+    const savedEmail = localStorage.getItem('email');
+    if (savedEmail) {
+      handleChange({ target: { name: 'email', value: savedEmail } });
+      setIsRememberEmail(true);
+    }
+  }, [handleChange]);
+
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-lg">
+    <div className="min-h-screen bg-white flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8  p-8 rounded-xl ">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             로그인
@@ -92,17 +93,7 @@ export default function LoginPage() {
             </label>
           </div>
           <div>
-            <button
-              type="submit"
-              disabled={!isFormValid}
-              className={`w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
-                isFormValid
-                  ? 'bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
-                  : 'bg-gray-400 cursor-not-allowed'
-              }`}
-            >
-              로그인
-            </button>
+            <Button isFormValid={isFormValid} textContent="로그인" />
           </div>
         </form>
         <div className="mt-6 text-center">

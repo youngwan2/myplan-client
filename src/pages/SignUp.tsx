@@ -1,16 +1,28 @@
+import useSignUpForm from '../customs/useSignUpForm';
+import { useNavigate } from 'react-router';
 import { InputField } from '../components/common/InputField';
 import Button from '../components/common/Button';
-import useSignUpForm from '../customs/useSignUpForm';
+
+import { registerUser } from '../apis/auth';
+import { toast } from 'react-toastify';
 
 export default function SignUp() {
   const { errors, formData, handleChange, isFormValid } = useSignUpForm();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (isFormValid) {
-      console.log('회원가입 성공', formData);
+      const { username, email, password } = formData;
+      const isSuccess = await registerUser({ username, email, password });
+
+      if (isSuccess) {
+        navigate('/login');
+      } else {
+      }
     } else {
-      console.log('폼 검증 실패');
+      toast.error('폼 검증 실패');
     }
   };
 

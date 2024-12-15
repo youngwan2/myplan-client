@@ -31,6 +31,7 @@ export function InputField({
         {label}
       </label>
       <input
+        autoComplete="new-password"
         id={id}
         name={name}
         type={type}
