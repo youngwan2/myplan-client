@@ -1,14 +1,13 @@
-import useSignupForm from '../customs/useSignupForm';
 import { InputField } from '../components/common/InputField';
 import Button from '../components/common/Button';
+import useSignUpForm from '../customs/useSignUpForm';
 
-export default function Signup() {
-  const { errors, formData, handleChange, isFormValid } = useSignupForm();
+export default function SignUp() {
+  const { errors, formData, handleChange, isFormValid } = useSignUpForm();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (isFormValid) {
-      // 회원가입 로직 구현 (예: API 호출)
       console.log('회원가입 성공', formData);
     } else {
       console.log('폼 검증 실패');
@@ -16,8 +15,8 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-lg">
+    <div className="min-h-screen bg-white flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[540px] w-full space-y-8 bg-white p-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             회원가입

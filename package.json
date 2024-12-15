@@ -19,6 +19,7 @@
     "d3": "^7.9.0",
     "framer-motion": "^11.13.5",
     "motion": "^11.13.5",
+    "popmotion": "^11.0.5",
     "react": "^18.3.1",
     "react-date-picker": "^11.0.0",
     "react-dom": "^18.3.1",

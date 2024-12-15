@@ -20,7 +20,7 @@ const initialErrors: FormErrors = {
   password: '',
   confirmPassword: '',
 };
-export default function useSignupForm() {
+export default function useSignUpForm() {
   const [formData, setFormData] = useState({
     username: '',
     email: '',

@@ -19,7 +19,7 @@ export function InputField({
   label,
   placeholder,
 }: PropsType) {
-  const inputClass = `mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${
+  const inputClass = `mt-1 block w-full px-3 sm:py-4 py-2 border rounded-md shadow-sm focus:outline-none ${
     error
       ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
       : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'

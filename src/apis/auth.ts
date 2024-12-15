@@ -10,3 +10,5 @@ const registerUser = async (user: SignupUser) => {
 
 // 로그인
 const loginUser = async (user: SignupUser) => {};
+
+export { registerUser, loginUser };

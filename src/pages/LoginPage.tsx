@@ -4,7 +4,7 @@ import { InputField } from '../components/common/InputField';
 import { useNavigate } from 'react-router';
 
 // Login Component
-export default function Login() {
+export default function LoginPage() {
   const { formData, errors, isFormValid, handleChange } = useLoginForm();
   const [isRememberEmail, setIsRememberEmail] = useState(false);
   const router = useNavigate();
@@ -43,7 +43,7 @@ export default function Login() {
   };
 
   const handleSignUpRedirect = () => {
-    router('/signup'); // 회원가입 페이지로 이동
+    router('/sign-up'); // 회원가입 페이지로 이동
   };
 
   return (

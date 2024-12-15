@@ -1,10 +1,12 @@
 import Header from './components/layout/Header';
+import IntroPage from './pages/IntroPage';
 
 function App() {
   return (
-    <>
-      <Header></Header>
-    </>
+    <section className="max-w-[768px] mx-auto">
+      {/* <Header /> */}
+      <IntroPage />
+    </section>
   );
 }
 
