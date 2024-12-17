@@ -1,4 +1,4 @@
-import useSignUpForm from '../customs/useSignUpForm';
+import useSignUpForm from '../hooks/useSignUpForm';
 import { useNavigate } from 'react-router';
 import { InputField } from '../components/common/InputField';
 import Button from '../components/common/Button';

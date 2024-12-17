@@ -1,14 +1,13 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 
-import CircleChartEdit from './plan-write-form/CircleChartEdit';
-import ColorPicker from './plan-write-form/ColorPicker';
-import PlanDateRange from './plan-write-form/PlanDateRange';
-import PlanTitle from './plan-write-form/PlanTitle';
-import PlanTextArea from './plan-write-form/PlanTextArea';
-
 import type { Task } from '../../../types/plan.type';
 import { BiSolidChevronLeft, BiCheck, BiRefresh } from 'react-icons/bi';
 import { formatTime } from '../../../utils/formatUtil';
+import CircleChartEdit from './write-form/CircleChartEdit';
+import ColorPicker from './write-form/ColorPicker';
+import PlanDateRange from './write-form/PlanDateRange';
+import PlanTextArea from './write-form/PlanTextArea';
+import PlanTitle from './write-form/PlanTitle';
 
 interface PropsType {
   onClickCloseWriteForm: () => void;

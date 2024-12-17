@@ -1,12 +1,12 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import ApiResponseError from '../exception/apiResponseError';
 
-const axiosConfig = {
+const defaultConfig = {
   baseURL: 'http://localhost:8080',
   headers: {
     'Content-Type': 'application/json',
   },
-  credential: true,
+  withCredentials: true,
 };
 
 axios.interceptors.response.use(
@@ -35,4 +35,4 @@ axios.interceptors.response.use(
   },
 );
 
-export const client = axios.create(axiosConfig);
+export const client = axios.create(defaultConfig);

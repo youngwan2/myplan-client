@@ -2,22 +2,22 @@ import { useState, useEffect } from 'react';
 import { validators } from '../utils/validationUtils';
 
 interface LoginFormData {
-  email: string;
+  username: string;
   password: string;
 }
 
 interface FormErrors {
-  email: string | null;
+  username: string | null;
   password: string | null;
 }
 
 export default function useLoginForm() {
   const [formData, setFormData] = useState<LoginFormData>({
-    email: '',
+    username: '',
     password: '',
   });
   const [errors, setErrors] = useState<FormErrors>({
-    email: null,
+    username: null,
     password: null,
   });
   const [isFormValid, setIsFormValid] = useState(false);
@@ -44,7 +44,7 @@ export default function useLoginForm() {
 
   useEffect(() => {
     const formErrors: FormErrors = {
-      email: validators.email(formData.email),
+      username: validators.username(formData.username),
       password: validators.password(formData.password),
     };
     setErrors(formErrors);
