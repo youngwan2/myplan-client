@@ -38,7 +38,7 @@ const loginUser = async (user: LoginUser): Promise<boolean> => {
         'Content-Type': 'multipart/form-data',
       },
     });
-    localStorage.setItem('Authrization', response.headers['authorization']);
+    localStorage.setItem('Authorization', response.headers['authorization']);
 
     toast.success('로그인 성공!');
     return true;

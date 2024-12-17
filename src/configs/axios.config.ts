@@ -9,7 +9,24 @@ const defaultConfig = {
   withCredentials: true,
 };
 
-axios.interceptors.response.use(
+const client = axios.create(defaultConfig);
+
+// 요청 인터셉터 추가
+client.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('Authorization');
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
+
+// 응답 인터셉터
+client.interceptors.response.use(
   (response: AxiosResponse) => {
     if (response.data.message) {
       throw new ApiResponseError(
@@ -35,4 +52,4 @@ axios.interceptors.response.use(
   },
 );
 
-export const client = axios.create(defaultConfig);
+export { client };

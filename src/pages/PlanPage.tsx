@@ -37,15 +37,20 @@ export default function PlanPage() {
   }
 
   return (
-    <section className="max-w-[768px] w-full mx-auto min-h-[100vh] bg-slate-100 relative">
-      <PlanHeader />
-      <PlanMain>
-        <CircleChart tasks={formattedTasks} />
-      </PlanMain>
-      {isOpenWriteFormModal ? (
-        <PlanWriteFormModal onClickCloseWriteForm={onClick} addTask={addTask} />
-      ) : null}
-      <PlanFooter onClickOpenForm={onClick} tasks={tasks} />
-    </section>
+    <div className="w-full h-screen bg-gray-100 flex justify-center items-center overflow-hidden">
+      <section className="w-[768px] relative bg-white shadow-xl h-[100vh]">
+        <PlanHeader />
+        <PlanMain>
+          <CircleChart tasks={formattedTasks} />
+        </PlanMain>
+        {isOpenWriteFormModal ? (
+          <PlanWriteFormModal
+            onClickCloseWriteForm={onClick}
+            addTask={addTask}
+          />
+        ) : null}
+        <PlanFooter onClickOpenForm={onClick} tasks={tasks} />
+      </section>
+    </div>
   );
 }
