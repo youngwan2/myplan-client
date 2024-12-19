@@ -28,7 +28,7 @@ client.interceptors.request.use(
 // 응답 인터셉터
 client.interceptors.response.use(
   (response: AxiosResponse) => {
-    if (response.data.message) {
+    if (response.data.error) {
       throw new ApiResponseError(
         `${response.data.message}`,
         response.status,

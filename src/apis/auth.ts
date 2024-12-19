@@ -43,6 +43,7 @@ const loginUser = async (user: LoginUser): Promise<boolean> => {
     toast.success('로그인 성공!');
     return true;
   } catch (error) {
+    console.log(error);
     if (error instanceof AxiosError) {
       console.log(error);
       toast.error(
