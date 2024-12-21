@@ -42,6 +42,7 @@ export default function useLoginForm() {
     setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
   };
 
+  // 예러 동적 처리
   useEffect(() => {
     const formErrors: FormErrors = {
       username: validators.username(formData.username),

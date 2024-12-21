@@ -1,8 +1,9 @@
-import { Task } from '../types/plan.type';
+import { Task } from '../types/task.type';
 import { calculateDegree } from './mathUtil';
 
 // Task 포맷 변경
-export const formatTaskDateToDegree = (tasks: Task[]) => {
+export const formatTaskDateToDegree = (tasks?: Task[]) => {
+  if (!Array.isArray(tasks)) return [];
   return tasks.map((task) => {
     const [startHour, startMinute] = task.startTime.toString().split(':');
     const [endHour, endMinute] = task.endTime.toString().split(':');

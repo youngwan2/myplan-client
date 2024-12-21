@@ -1,9 +1,9 @@
 export default class ApiResponseError extends Error {
-  statusCode: number;
+  statusCode?: number;
   response?: any;
 
-  constructor(message: string, statusCode: number, response?: any) {
-    super(`API 요청 실패 에러:  ${statusCode} :: ${message}`);
+  constructor(message: string, statusCode?: number, response?: any) {
+    super(message);
     this.name = 'ApiResponseError';
     this.statusCode = statusCode;
     this.response = response;

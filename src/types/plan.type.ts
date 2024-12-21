@@ -1,17 +1,9 @@
-interface Task {
-  id?: number;
-  title: string;
-  description?: string; // Make it optional
-  colorCode: string;
-  startTime: string | number;
-  endTime: string | number;
-  createdAt?: string;
-}
+import { Task } from './task.type';
 
-interface Plan {
+export interface Plan {
   id?: number;
   planDate: string;
   tasks?: Task[];
+  createAt?: string;
+  updatedAt?: string;
 }
-
-export type { Task, Plan };

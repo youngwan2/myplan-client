@@ -43,9 +43,14 @@ const loginUser = async (user: LoginUser): Promise<boolean> => {
     toast.success('로그인 성공!');
     return true;
   } catch (error) {
-    console.log(error);
+    if (error instanceof Error) {
+      if (error.message.includes('403')) {
+        toast.error(
+          '아이디 혹은 비밀번호가 일치하지 않습니다. 확인 후 다시시도 해주세요.',
+        );
+      }
+    }
     if (error instanceof AxiosError) {
-      console.log(error);
       toast.error(
         error.response
           ? '아이디 혹은 비밀번호이 일치하지 않거나 존재하지 않는 계정 입니다. 확인 후 다시시도 해주세요.'

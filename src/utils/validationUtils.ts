@@ -1,4 +1,4 @@
-import { Task } from '../types/plan.type';
+import { Task } from '../types/task.type';
 
 // 유효성 체크 => 필요에 따라 확장 가능
 export const validators = {
@@ -58,5 +58,6 @@ export const isOverlappingTaskTime = (tasks: Task[], newTask: Task) => {
 
 /** 기존에 사용중인 색상이라면 true */
 export const existingColorCode = (tasks: Task[], newColorCode: string) => {
+  if (!Array.isArray(tasks)) throw new Error('존재하지 않는 목록입니다.');
   return tasks.some((task) => task.colorCode === newColorCode);
 };

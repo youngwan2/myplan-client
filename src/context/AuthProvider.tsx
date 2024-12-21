@@ -11,7 +11,6 @@ export default function AuthProvider({
   const [user, setUser] = useState(null);
 
   function login() {
-    console.log('로그인 성공');
     // setUser(userInfo)
   }
 

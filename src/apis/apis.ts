@@ -3,7 +3,7 @@ export class ApiPath {
 
   public static readonly PLAN = {
     base: `${ApiPath.BASE_URL}/plans`,
-    getOne: (id: string) => `${ApiPath.BASE_URL}/plans/${id}`,
+    getOne: (planDate: string) => `${ApiPath.BASE_URL}/plans/${planDate}`,
     create: () => `${ApiPath.BASE_URL}/plans`,
     update: (id: string) => `${ApiPath.BASE_URL}/plans/${id}`,
     delete: (id: string) => `${ApiPath.BASE_URL}/plans/${id}`,

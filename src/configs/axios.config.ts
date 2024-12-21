@@ -5,6 +5,7 @@ const defaultConfig = {
   baseURL: 'http://localhost:8080',
   headers: {
     'Content-Type': 'application/json',
+    Authorization: localStorage.getItem('Authorization'),
   },
   withCredentials: true,
 };
@@ -16,7 +17,7 @@ client.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('Authorization');
     if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
+      config.headers['Authorization'] = `${token}`;
     }
     return config;
   },
@@ -39,8 +40,9 @@ client.interceptors.response.use(
   },
   (error: AxiosError) => {
     if (error.response) {
+      // 나머지는 기존대로 에러로 처리
       throw new ApiResponseError(
-        `요청이 ${error.response.status} 상태 코드로 실패했습니다.`,
+        error.message,
         error.response.status,
         error.response.data,
       );

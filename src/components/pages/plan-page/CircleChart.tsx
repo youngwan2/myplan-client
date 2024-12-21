@@ -2,8 +2,8 @@ import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
 import useResize from '../../../hooks/useResize';
 import { angleToRadians } from '../../../utils/mathUtil';
-import { Task } from '../../../types/plan.type';
 import EmptyMessage from '../../common/EmptyMessage';
+import { Task } from '../../../types/task.type';
 
 interface PropsType {
   tasks: Task[];

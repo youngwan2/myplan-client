@@ -3,34 +3,26 @@ import 'react-calendar/dist/Calendar.css';
 
 import { useState } from 'react';
 import DatePicker from 'react-date-picker';
-import { useNavigate } from 'react-router';
-import { formatDate } from '../../../utils/formatUtil';
 import { Value } from '../../../types/lib.type';
+import { PlanHeaderPropsType } from '../../../types/plan.types';
 
-export default function PlanHeader() {
+export default function PlanHeader({ onDateChange }: PlanHeaderPropsType) {
   const [value, onChange] = useState<Value>(new Date());
-  const navigation = useNavigate();
-
-  function changePath(date: Value) {
-    navigation(`/plan/${formatDate(new Date(date?.toString() || 0))}`);
-  }
 
   return (
     <div className="p-4">
       <DatePicker
-        closeCalendar
-        value={value}
         onChange={onChange}
-        format="y년MM월dd일"
+        value={value}
+        format="y-MM-dd"
+        className="mr-2"
+        closeCalendar
         clearIcon={null}
       />
       <button
         className="border border-l-transparent hover:bg-slate-50 active:bg-[#dadada] border-[#7d7d7e] pt-[1.8px] p-[1.1px]"
-        onClick={() => {
-          changePath(value);
-        }}
+        onClick={() => onDateChange(value)}
       >
-        {' '}
         변경
       </button>
     </div>
