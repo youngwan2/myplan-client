@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios';
 import { client } from '../configs/axios.config';
 import ApiResponseError from '../exception/apiResponseError';
 import { ApiPath } from './apis';
@@ -22,6 +23,15 @@ export const getAllPlan = async () => {
 // GET: 특정 날짜 플랜 조회
 export const getPlanByDate = async (planDate?: string) => {
   if (!planDate) throw new ApiResponseError('플랜 날짜가 지정되지 않았습니다.');
-  const response = await client.get(ApiPath.PLAN.getOne(planDate));
-  return response.data.data;
+  try {
+    const response = await client.get(ApiPath.PLAN.getOne(planDate));
+    return response.data.data || [];
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      console.error(error.name, error.message);
+      if (error.message.includes('404')) {
+        return [];
+      }
+    }
+  }
 };

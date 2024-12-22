@@ -5,6 +5,7 @@ import Button from '../components/common/Button';
 
 import { registerUser } from '../apis/auth';
 import { toast } from 'react-toastify';
+import BackButton from '../components/common/BackButton';
 
 export default function SignUp() {
   const { errors, formData, handleChange, isFormValid } = useSignUpForm();
@@ -29,8 +30,9 @@ export default function SignUp() {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[540px] w-full space-y-8 bg-white p-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <div className="flex items-center justify-center mt-6 relative">
+          <BackButton className="absolute left-0" />
+          <h2 className=" text-center text-3xl font-extrabold text-gray-900">
             회원가입
           </h2>
         </div>

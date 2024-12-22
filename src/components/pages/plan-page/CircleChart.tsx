@@ -22,7 +22,7 @@ export default function CircleChart({ tasks }: PropsType) {
     arc: d3.Arc<any, any>,
   ) {
     // 데이터 바인딩 및 파이 조각 그리기
-    tasks.forEach((d, i) => {
+    tasks.forEach((d) => {
       const { startTime, endTime, title } = d;
 
       // 파이 조각 추가

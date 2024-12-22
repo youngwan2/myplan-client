@@ -1,8 +1,9 @@
-import { Value } from './lib.type';
 import { Task } from './task.type';
 
 export interface PlanHeaderPropsType {
-  onDateChange: (date: Value) => void;
+  currentDate: string;
+  selectedPlanDate?: string;
+  localDateList: string[];
 }
 
 export interface PlanWriteFormModalPropsType {

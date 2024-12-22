@@ -1,30 +1,47 @@
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DatePicker from 'react-date-picker';
 import { Value } from '../../../types/lib.type';
 import { PlanHeaderPropsType } from '../../../types/plan.types';
+import DateSlide from './DateSlide';
+import PlanTitle from './PlanTitle';
+import { useDateStore } from '../../../store/dateStore';
+import { formatDate } from '../../../utils/formatUtil';
 
-export default function PlanHeader({ onDateChange }: PlanHeaderPropsType) {
+export default function PlanHeader({
+  selectedPlanDate,
+  localDateList,
+}: PlanHeaderPropsType) {
   const [value, onChange] = useState<Value>(new Date());
+  const { setDate, currentDate } = useDateStore();
+
+  function handleDateChange(e: Value) {
+    if (!e) return;
+    onChange(e);
+    setDate(formatDate(new Date(e.toString())));
+  }
+
+  useEffect(() => {
+    onChange(new Date(currentDate));
+  }, [currentDate]);
 
   return (
     <div className="p-4">
-      <DatePicker
-        onChange={onChange}
-        value={value}
-        format="y-MM-dd"
-        className="mr-2"
-        closeCalendar
-        clearIcon={null}
-      />
-      <button
-        className="border border-l-transparent hover:bg-slate-50 active:bg-[#dadada] border-[#7d7d7e] pt-[1.8px] p-[1.1px]"
-        onClick={() => onDateChange(value)}
-      >
-        변경
-      </button>
+      <div className="flex justify-between">
+        <div className="flex items-center">
+          <DatePicker
+            onChange={handleDateChange}
+            value={value}
+            format="y-MM-dd"
+            closeCalendar
+            clearIcon={null}
+          />
+        </div>
+        <PlanTitle selectedPlanDate={selectedPlanDate} />
+      </div>
+      <DateSlide localDateList={localDateList} />
     </div>
   );
 }

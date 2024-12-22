@@ -1,7 +1,7 @@
 import { Task } from '../types/task.type';
 import { calculateDegree } from './mathUtil';
 
-// Task 포맷 변경
+/** 작업 시작 시간과 끝 시간을 각도로 변환 */
 export const formatTaskDateToDegree = (tasks?: Task[]) => {
   if (!Array.isArray(tasks)) return [];
   return tasks.map((task) => {
